@@ -63,9 +63,46 @@ var StringLibrary = function () {
 // Number Library
 var NumberLibrary = function () {
 	
+	// Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
+	var formatNumto2Dec = function (num,afterDecimal) {
+	return Number(num.toFixed(afterDecimal));	
+	}
+	
+	// Find the number of hours or days difference between two dates.
+	// Date format (yyyy,mm,dd)
+	var compareTimeBtDates = function (date1,date2) {
+		var results = [];
+		var difference = (date1 > date2) ? date1.getTime() - date2.getTime(): date2.getTime() - date1.getTime();
+		results[3] = difference / 1000;
+		results[2] = results[3] / 60;
+		results[1] = results[2] / 60;
+		results[0] = results[1] / 24;
+		return results;
+	}
+	
+	// Given a string version of a number such as "42", return the value as an actual Number, such as 42.
+    var strToNum = function (num) {
+		return Number(num);
+    };
+	
+	return {
+		"formatNumto2Dec" : formatNumto2Dec, // Return to help Decimal Formatting
+		"compareTimeBtDates" : compareTimeBtDates, // Return to help Time Comparison
+		"strToNum"           : strToNum // Return to help String to Number Function
+	}
+	
+};
+
+// Array Library 
+var ArrayLibrary = function () {
+
+	// Find the smallest value in an array that is greater than a given number
 	
 	
-}
+	
+	
+	
+};
 
 // String Tests
 console.log("STRING LIBRARY EXECUTION");
@@ -78,7 +115,20 @@ console.log("URL: "    + stringLib.isURL("http://dominiquehouston.com/"));
 console.log("Title-case: " + stringLib.splitStrUppercase("britney jean spears was here"));
 console.log("Separator Switch: " + stringLib.switchSeparator("dont stop and make it pop","/"));
 
+console.log("");
+console.log("");
 
 // Number Tests
 console.log("NUMBER LIBRARY EXECUTION");
 var numberLib = NumberLibrary(); // Execute String Library
+console.log("");
+console.log("Test Results from String Library Function");
+console.log("Format Number: " + numberLib.formatNumto2Dec(1.2345,2));
+var date1 = new Date(1990,1,26);
+var date2 = new Date(2013,5,30);
+var timeConversion = numberLib.compareTimeBtDates(date1,date2);
+console.log("Difference in days: " + timeConversion[0] + ", in hours: " + timeConversion[1]);
+console.log("Blue " + numberLib.strToNum("42") + "!");
+console.log(" ");
+
+// Array Tests
