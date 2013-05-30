@@ -60,6 +60,13 @@ var StringLibrary = function () {
 };
 
 
+// Number Library
+var NumberLibrary = function () {
+	
+	
+	
+}
+
 // String Tests
 console.log("STRING LIBRARY EXECUTION");
 var stringLib = StringLibrary(); // Execute String Library
@@ -70,3 +77,8 @@ console.log("E-mail Address: "    + stringLib.isEmail("dominique@dominiquehousto
 console.log("URL: "    + stringLib.isURL("http://dominiquehouston.com/"));
 console.log("Title-case: " + stringLib.splitStrUppercase("britney jean spears was here"));
 console.log("Separator Switch: " + stringLib.switchSeparator("dont stop and make it pop","/"));
+
+
+// Number Tests
+console.log("NUMBER LIBRARY EXECUTION");
+var numberLib = NumberLibrary(); // Execute String Library
