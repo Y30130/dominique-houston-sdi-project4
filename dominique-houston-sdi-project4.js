@@ -93,13 +93,27 @@ var NumberLibrary = function () {
 	
 };
 
-// Array Library 
+// Array Library
 var ArrayLibrary = function () {
 
 	// Find the smallest value in an array that is greater than a given number
+	var smallestValueInArray = function (array,num) {
+		array.sort(function(a,b){return a-b;});
+		if (num >= array[0] && num < array[array.length-1]) {
+				array.push(num);
+				array.sort(function(a,b){return a-b;});
+				var result = array[array.lastIndexOf(num) + 1];
+				return result;
+		} else {
+			return null;
+		}
+	}
 	
 	
-	
+	return {
+		
+		"smallestValueInArray" : smallestValueInArray,
+	}
 	
 	
 };
@@ -130,5 +144,12 @@ var timeConversion = numberLib.compareTimeBtDates(date1,date2);
 console.log("Difference in days: " + timeConversion[0] + ", in hours: " + timeConversion[1]);
 console.log("Blue " + numberLib.strToNum("42") + "!");
 console.log(" ");
+console.log("");
 
 // Array Tests
+console.log("ARRAY LIBRARY EXECUTION");
+var arrayLib = ArrayLibrary(); // Execute String Library
+console.log("");
+console.log("Test Results from Array Library Function");
+var numList = [11,1,90,10,12,2,4,8,5,];
+console.log(arrayLib.smallestValueInArray(numList,2));
