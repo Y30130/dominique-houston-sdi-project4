@@ -13,21 +13,21 @@ var StringLibrary = function () {
 	var isPhoneNumUS = function (str) {
 		var phoneNum= new String("123-456-7890");
 		var re = (/\d{3}-\d{3}-\d{4}/); // (re = Regular Expression), all resources lead to this conclusion	
-		return re.test(str);
+		return re.test(str); // Makeup: Method
 	};
 	
 	// Does a string follow an aaa@bbb.ccc pattern like an email address?
 	// Return boolean value
 	var isEmail = function (str) {
 		var re = /^\w+@[\w.\-]+\.[A-Za-z]{2,}$/; // (re = Regular Expression), all resources lead to this conclusion
-		return re.test(str);
+		return re.test(str); // Makeup: Method
 	};
 	
 	// Is the string a URL? (Does it start with http: or https:?)
 	// Returns boolean value
 	var isURL = function (str) {
 		var re = /^(?:http|https):/; // (re = Regular Expression), all resources lead to this conclusion
-		return re.test(str);
+		return re.test(str); // Makeup: Method
 	};
 	
 	// Title-case a string (split into words, then uppercase the first letter of each word)
@@ -46,7 +46,7 @@ var StringLibrary = function () {
 	// return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 	var switchSeparator = function (str,newSep) {
 		var re = /\W/g; // (re = Regular Expression), all resources lead to this conclusion
-		return str.replace(re,newSep);
+		return str.replace(re,newSep); // Makeup: Method
 	};
 	
 	
@@ -99,9 +99,9 @@ var ArrayLibrary = function () {
 
 	// Find the smallest value in an array that is greater than a given number, if no value, return null
 	var smallestValueInArray = function (array,num) {
-		array.sort(function(a,b){return a-b;});
+		array.sort(function(a,b){return a-b;}); // Makeup: Method
 		if (num >= array[0] && num < array[array.length-1]) {
-				array.push(num);
+				array.push(num); // Makeup: Method
 				array.sort(function(a,b){return a-b;});
 				var result = array[array.lastIndexOf(num) + 1];
 				return result;
@@ -127,7 +127,7 @@ var ArrayLibrary = function () {
 	};
 	
 	
-	return {
+	return { // Makeup: Returns
 		
 		"smallestValueInArray" : smallestValueInArray,
 		"totalValNumInArray" : totalValNumInArray,
